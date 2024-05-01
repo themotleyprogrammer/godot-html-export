@@ -52,17 +52,17 @@ runs:
         unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
-        sudo godot -e -q
+        godot -e -q
 
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
       shell: bash
-      run: cp ${{ github.action_path }}/export_presets.cfg ${{ inputs.working-directory }}/export_presets.cfg
+      run: sudo cp ${{ github.action_path }}/export_presets.cfg ${{ inputs.working-directory }}/export_presets.cfg
 
     - name: Create export paths directory structure
       shell: bash
-      run: mkdir -p "$(dirname ${{ inputs.output-file-path }})"
+      run: sudo mkdir -p "$(dirname ${{ inputs.output-file-path }})"
 
     - name: Export
       shell: bash
-      run: godot --path ${{ inputs.working-directory }} --export HTML5 ${{ inputs.output-file-path }}
+      run: sudo godot --path ${{ inputs.working-directory }} --export HTML5 ${{ inputs.output-file-path }}
