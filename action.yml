@@ -42,6 +42,7 @@ runs:
       if: steps.cache-godot.outputs.cache-hit != 'true'
       shell: bash
       run: |
+        chmod +rwx /home/runner/work/_temp/d6750c2b-404e-40c6-8017-b82cecefc92a.sh
         sudo wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
         sudo wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         sudo mkdir ~/.cache
