@@ -42,16 +42,16 @@ runs:
       if: steps.cache-godot.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
-        wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
-        mkdir ~/.cache
-        mkdir -p ~/.config/godot
-        mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
-        unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
-        mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
-        unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
-        mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
-        rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
+        sudo wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
+        sudo wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
+        sudo mkdir ~/.cache
+        sudo mkdir -p ~/.config/godot
+        sudo mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
+        sudo unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
+        sudo mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
+        sudo unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
+        sudo mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
+        sudo rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         godot -e -q
 
     - name: Create export presets config
