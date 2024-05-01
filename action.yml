@@ -52,7 +52,7 @@ runs:
         sudo mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         chmod -R +rwx /home/runner/work/_temp
         sudo unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
-        chmod -R +rwx /usr/local/bin/godot
+        chmod -R +rwx /usr/local/bin/
         sudo mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
         chmod -R +rwx /home/runner/work/_temp
         sudo unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
