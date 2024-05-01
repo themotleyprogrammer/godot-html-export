@@ -55,6 +55,7 @@ runs:
         sudo rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         godot -e -q
         chmod -R +rwx /home/runner/work/_temp
+        chmod -R +rwx /usr/local/bin/godot
 
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
