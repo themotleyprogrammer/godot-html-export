@@ -34,7 +34,7 @@ runs:
       with:
         path: |
           ~/.local/share/godot/**
-          /usr/local/bin/godot
+          /junkgodot
           ~/.config/godot/**
         key: ${{ runner.os }}-godot-${{ inputs.godot-version }}
 
@@ -52,7 +52,7 @@ runs:
         sudo mkdir -p ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         chmod -R +rwx /home/runner/work/_temp
         sudo unzip Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
-        sudo mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /usr/local/bin/godot
+        sudo mv Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip /junkgodot
         chmod -R +rw /usr/local/bin/godot
         chmod -R +rw /home/runner/work/_temp
         sudo unzip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
