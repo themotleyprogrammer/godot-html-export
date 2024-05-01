@@ -54,7 +54,7 @@ runs:
         sudo mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         sudo rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         godot -e -q
-        chmod +rwx /home/runner/work/_temp/d6750c2b-404e-40c6-8017-b82cecefc92a.sh
+        chmod +rwx /home/runner/work/_temp
 
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
