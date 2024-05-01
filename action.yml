@@ -58,7 +58,7 @@ runs:
         sudo mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         chmod -R +rwx /home/runner/work/_temp
         sudo rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
-        godot -e -q
+        
 
 
 
