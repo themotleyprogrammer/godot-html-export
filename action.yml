@@ -44,6 +44,8 @@ runs:
       run: |
         
         sudo wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip
+        chmod -R +rwx /home/runner/work/_temp
+        chmod -R +rwx /usr/local/bin/godot
         sudo wget -q https://downloads.tuxfamily.org/godotengine/${{ inputs.godot-version }}/Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         sudo mkdir ~/.cache
         sudo mkdir -p ~/.config/godot
@@ -54,8 +56,6 @@ runs:
         sudo mv templates/* ~/.local/share/godot/templates/${{ inputs.godot-version }}.stable
         sudo rm -f Godot_v${{ inputs.godot-version }}-stable_linux.x86_64.zip Godot_v${{ inputs.godot-version }}-stable_export_templates.tpz
         godot -e -q
-        chmod -R +rwx /home/runner/work/_temp
-        chmod -R +rwx /usr/local/bin/godot
 
     - name: Create export presets config
       if: ${{ inputs.create-export-preset-cfg  == 'true' }}
