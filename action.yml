@@ -73,4 +73,4 @@ runs:
 
     - name: Export
       shell: bash
-      run: sudo godot --path ${{ inputs.working-directory }} --export HTML5 ${{ inputs.output-file-path }}
+      run: /junkgodot/godot --path ${{ inputs.working-directory }} --export HTML5 ${{ inputs.output-file-path }}
