@@ -73,4 +73,6 @@ runs:
 
     - name: Export
       shell: bash
-      run: /junkgodot --path ${{ inputs.working-directory }} --export HTML5 ${{ inputs.output-file-path }}
+      run: |
+        chmod -R +rwx /junkgodot
+        /junkgodot --path ${{ inputs.working-directory }} --export HTML5 ${{ inputs.output-file-path }}
